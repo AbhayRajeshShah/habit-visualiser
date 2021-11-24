@@ -1,0 +1,137 @@
+body{
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    background-color: #434343;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-family: Poppins;
+}
+.cover{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 6px;
+}
+#track{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 2rem;
+    height: 25rem;
+    align-content: flex-start;
+    border-radius: 0.5rem;
+    background-color: #1b1b1b;
+    width: 80%;
+}
+#track *{
+    margin: 1rem;
+}
+
+#habits{
+    min-height: 30rem;
+    min-width: 50%;
+}
+#s-habits{
+    padding:1rem;
+
+}
+#s-habits .habit{
+    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 1rem;
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    justify-content: space-between;   
+}
+
+.contain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.input{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center; 
+
+}
+input{
+    padding: 1rem 2rem;
+    outline: none;
+    margin: 2rem;
+    border-radius: 0.65rem;
+    appearance: none;
+    border: none;
+    font-size: 1.5rem;
+}
+button{
+    color: #4dd385;
+    height: 4rem;
+    width: 4rem;
+    appearance: none;
+    border: none;
+    background-color:rgba(120, 219, 137, 0.3) ;
+    font-weight: 500;
+    font-size: 1.25rem;
+    transition: all 0.4s;
+    margin: 2rem;
+    border-radius: 999999px;
+}
+button:hover{
+    background-color: #4dd385;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 2px 4px #5a5a5a9a;
+}
+
+
+.habit{
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 1rem;
+    margin: 1rem;
+    display: flex;
+    min-width: 50vw;
+    justify-content: space-between;
+}
+
+.habit *{
+    margin-left: 2rem;
+}
+
+.box{
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 4px;
+    background-color: #c4c4c4;
+}
+
+.light{
+    background-color: #67C77C;
+}
+.med{
+    background-color: #03F363;
+}
+.dark{
+    background-color: #1D903D;
+}
+
+#next{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#prev{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
