@@ -1,7 +1,7 @@
 var track;
 const trackHTML = document.getElementById("track");
 var Day = new Date();
-var currentDate = Day.getDate();
+var currentDate = Day.getMinutes();
 var habits;
 var currentHabits;
 var buttons;
@@ -29,6 +29,7 @@ if(localStorage.getItem("currentHabit")){
     currentHabits = JSON.parse(localStorage.getItem("currentHabit"));
    }else{
        localStorage.setItem("currentHabit",JSON.stringify(habits))
+       localStorage.setItem("habitLength",JSON.stringify(habits.length));
        currentHabits = JSON.parse(localStorage.getItem("currentHabit"));
    }
 
