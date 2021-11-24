@@ -32,8 +32,12 @@ body{
 }
 
 #habits{
+    
     min-height: 30rem;
     min-width: 50%;
+}
+#habits .center{
+    text-align: center;
 }
 #s-habits{
     padding:1rem;
@@ -101,9 +105,10 @@ button:hover{
     margin: 1rem;
     display: flex;
     min-width: 50vw;
+    align-items: center;
     justify-content: space-between;
 }
-
+/* .habit */
 .habit *{
     margin-left: 2rem;
 }
@@ -134,4 +139,13 @@ button:hover{
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.x{
+    background-color: rgba(245, 72, 72, 0.327);
+    color: #c02c2c;
+    box-shadow: 0 0 2px 4px #747373;
+}
+.x:hover{
+    background-color: #ff0000;
 }
