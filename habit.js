@@ -1,7 +1,7 @@
 var track;
 const trackHTML = document.getElementById("track");
 var Day = new Date();
-var currentDate = Day.getMinutes();
+var currentDate = Day.getDate();
 var habits;
 var currentHabits;
 var buttons;
