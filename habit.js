@@ -4,6 +4,7 @@ var Day = new Date();
 var currentDate = Day.getDate();
 var habits;
 var currentHabits;
+var doneHabits;
 var buttons;
 localStorage.getItem("track")?track=JSON.parse(localStorage.getItem("track")):track=[0];
 const setDate=()=>{localStorage.setItem("track",JSON.stringify(track))}
@@ -15,6 +16,8 @@ localStorage.getItem("habit")?habits=JSON.parse(localStorage.getItem("habit")):h
 if(localStorage.getItem("currentDate")){
     if(currentDate!=JSON.parse(localStorage.getItem("currentDate"))){
         track.push(0);
+        doneHabits=[];
+        localStorage.setItem("doneHabits",JSON.stringify(doneHabits));
         localStorage.setItem("currentDate",JSON.parse(currentDate));
         localStorage.setItem("track",JSON.stringify(track));
         localStorage.removeItem("currentHabit");
@@ -44,6 +47,19 @@ if(localStorage.getItem("habitLength")){
     localStorage.setItem("currentHabit",JSON.stringify(currentHabits));
 }else{
     localStorage.setItem("habitLength",JSON.stringify(habits.length))
+}
+
+if(localStorage.getItem("doneHabits")){
+    doneHabits=JSON.parse(localStorage.getItem("doneHabits"));
+    habits.forEach((el,i)=>{
+        if(!currentHabits.includes(el)||doneHabits.includes(el)){
+            currentHabits.push(el);
+            localStorage.setItem("currentHabit",JSON.stringify(currentHabits));
+        }
+    })
+}else{
+    doneHabits = [];
+    localStorage.setItem("doneHabits",JSON.stringify(doneHabits));  
 }
 
 const renderTrack=()=>{
@@ -87,6 +103,7 @@ const render=()=>{
     buttons.forEach((button)=>{
         button.addEventListener("click",()=>{
             currentHabits.splice(button.name,1);
+            doneHabits.push(button.name);
             if(habits.length-currentHabits.length<Math.round(currentHabits.length/2)){
                 track[track.length-1]=1;
             }else if(habits.length-currentHabits.length==Math.round(currentHabits.length/2)){
