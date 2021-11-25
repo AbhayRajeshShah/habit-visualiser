@@ -149,3 +149,22 @@ button:hover{
 .x:hover{
     background-color: #ff0000;
 }
+.butcot{
+    display: flex;
+    position: sticky;
+    bottom: 0;
+    right: 0;
+    justify-content: flex-end;
+}
+#delete{
+    width: 10rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    background-color: #ff00002b;
+    color: #c02c2c;
+}
+#delete:hover{
+    background-color: #ff00008a;
+    color: white;  
+}

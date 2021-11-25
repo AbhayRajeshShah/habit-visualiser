@@ -6,10 +6,17 @@ var habits;
 var currentHabits;
 var doneHabits;
 var buttons;
+const del = document.getElementById("delete");
 localStorage.getItem("track")?track=JSON.parse(localStorage.getItem("track")):track=[0];
 const setDate=()=>{localStorage.setItem("track",JSON.stringify(track))}
 
 localStorage.getItem("habit")?habits=JSON.parse(localStorage.getItem("habit")):habits=[];
+
+del.addEventListener("click",()=>{
+    localStorage.clear();
+    location.reload();
+})
+
 
 
 
