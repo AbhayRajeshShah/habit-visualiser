@@ -18,11 +18,26 @@ del.addEventListener("click",()=>{
 })
 
 
+const renderTrack=()=>{
+    let string="";
+    track.forEach((el)=>{
+        let Style;
+
+
+        switch(el){
+            case 0: Style="";break;
+            case 1: Style="light";break;
+            case 2: Style="med";break;
+            case 3: Style="dark";break;
+        }
+        string+=`<div class="box ${Style}"></div>`
+    })
+    trackHTML.innerHTML=string;
+}
 
 
 if(localStorage.getItem("currentDate")){
     if(currentDate!=JSON.parse(localStorage.getItem("currentDate"))){
-        track.push(0);
         doneHabits=[];
         localStorage.setItem("doneHabits",JSON.stringify(doneHabits));
         localStorage.setItem("currentDate",JSON.parse(currentDate));
@@ -31,6 +46,20 @@ if(localStorage.getItem("currentDate")){
     }
 }else{
     localStorage.setItem("currentDate",JSON.stringify(currentDate));
+}
+
+if(localStorage.getItem("startDate")){
+    let start  = JSON.parse(localStorage.getItem("startDate"));
+    let diff = Math.floor((Day.getTime()-start)/(1000*60*60*24))+1;
+    if(track.length!==diff){
+        for(i=0;i<=(diff-track.length);i++){
+            track.push(0)
+        }
+    localStorage.setItem("track",JSON.stringify(track));
+    renderTrack();
+    }
+}else{
+    localStorage.setItem("startDate",JSON.stringify(Day.getTime()))
 }
 
 
@@ -69,22 +98,7 @@ if(localStorage.getItem("doneHabits")){
     localStorage.setItem("doneHabits",JSON.stringify(doneHabits));  
 }
 
-const renderTrack=()=>{
-    let string="";
-    track.forEach((el)=>{
-        let Style;
 
-
-        switch(el){
-            case 0: Style="";break;
-            case 1: Style="light";break;
-            case 2: Style="med";break;
-            case 3: Style="dark";break;
-        }
-        string+=`<div class="box ${Style}"></div>`
-    })
-    trackHTML.innerHTML=string;
-}
 renderTrack();
 
 
