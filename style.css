@@ -44,7 +44,6 @@ body{
 
 }
 #s-habits .habit{
-    padding: 0.5rem;
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 1rem;
     margin: 1rem;
@@ -99,7 +98,6 @@ button:hover{
 
 
 .habit{
-    padding: 1rem;
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 1rem;
     margin: 1rem;
