@@ -53,6 +53,8 @@ if(localStorage.getItem("startDate")){
     let diff = Math.floor((Day.getTime()-start)/(1000*60*60*24))+1;
     if(track.length!==diff){
         for(i=0;i<=(diff-track.length);i++){
+            doneHabits=[];
+            localStorage.setItem("doneHabits",JSON.stringify(doneHabits));
             track.push(0)
         }
     localStorage.setItem("track",JSON.stringify(track));
@@ -65,11 +67,13 @@ if(localStorage.getItem("startDate")){
 
 
 if(localStorage.getItem("currentHabit")){
+    localStorage.setItem("habitLength",JSON.stringify(habits.length));
     currentHabits = JSON.parse(localStorage.getItem("currentHabit"));
    }else{
        localStorage.setItem("currentHabit",JSON.stringify(habits))
        localStorage.setItem("habitLength",JSON.stringify(habits.length));
        currentHabits = JSON.parse(localStorage.getItem("currentHabit"));
+    localStorage.setItem("currentHabit",JSON.stringify(habits))
    }
 
 
@@ -88,7 +92,10 @@ if(localStorage.getItem("habitLength")){
 if(localStorage.getItem("doneHabits")){
     doneHabits=JSON.parse(localStorage.getItem("doneHabits"));
     habits.forEach((el,i)=>{
-        if(!currentHabits.includes(el)||doneHabits.includes(el)){
+        console.log(currentHabits)
+        if(!(currentHabits.includes(el)||doneHabits.includes(el))){
+            console.log("94"+el+" "+ currentHabits + " " + doneHabits);
+            console.log(currentHabits)
             currentHabits.push(el);
             localStorage.setItem("currentHabit",JSON.stringify(currentHabits));
         }
@@ -123,8 +130,8 @@ const render=()=>{
     buttons = document.querySelectorAll(".btn");
     buttons.forEach((button)=>{
         button.addEventListener("click",()=>{
-            currentHabits.splice(button.name,1);
-            doneHabits.push(button.name);
+            doneHabits.push(currentHabits[button.name]);
+            currentHabits.splice(button.name,1);           
             if(habits.length-currentHabits.length<Math.round(currentHabits.length/2)){
                 track[track.length-1]=1;
             }else if(habits.length-currentHabits.length==Math.round(currentHabits.length/2)){
@@ -137,6 +144,7 @@ const render=()=>{
             renderTrack();
             localStorage.setItem("currentHabit",JSON.stringify(currentHabits))
             render();
+            localStorage.setItem("doneHabits",JSON.stringify(doneHabits));
         })
     })
 }
